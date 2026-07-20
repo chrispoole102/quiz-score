@@ -1,0 +1,173 @@
+{
+
+    "07-20": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_Star_Wars_film_actors",
+      "text": "Name a live-action Star Wars character.",
+      "type": "table",
+      "column": 1,
+      "top-answer-default": [
+        "chewbacca",
+        "r2-d2",
+        "palpatine"
+      ]
+    },
+    "07-21": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_dog_breeds",
+      "text": "Name a dog breed.",
+      "type": "bullets",
+      "top-answer-default": [
+        "dalmatian",
+        "labrador",
+        "greyhound"
+      ]
+    },
+    "07-22": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_sovereign_states",
+      "text": "Name a sovereign state.",
+      "type": "table",
+      "column": 2,
+      "top-answer-default": [
+        "belgium",
+        "costa rica",
+        "mexico"
+      ]
+    },
+    "07-23": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_Marvel_Comics_first_appearances",
+      "text": "Name a Marvel character.",
+      "dev-note": "2000+ entries",
+      "type": "table",
+      "column": 1,
+      "top-answer-default": [
+        "scorpion",
+        "iron man",
+        "black bolt"
+      ],
+      "extra-answers": [
+        "dr strange",
+        "spiderman"
+      ]
+    },
+    "07-24": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_Walt_Disney_Pictures_films",
+      "text": "Name a Walt Disney Pictures film.",
+      "type": "table",
+      "column": 2,
+      "top-answer-default": [
+        "peter pan",
+        "old yeller",
+        "aristocats"
+      ]
+    },
+    "07-25": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_most-visited_websites",
+      "text": "Name a top 50 most visited website.",
+      "type": "table",
+      "column": 1,
+      "top-answer-default": [
+        "microsoft",
+        "discord",
+        "bbc"
+      ]
+    },
+    "07-26": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_culinary_fruits",
+      "text": "Name a fruit.",
+      "type": "table",
+      "column": 1,
+      "top-answer-default": [
+        "avocado",
+        "eggfruit",
+        "yuzu"
+      ]
+    },
+    "07-27": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_dance_styles",
+      "text": "Name a type of dance.",
+      "type": "bullets",
+      "top-answer-default": [
+        "locking",
+        "interpretive",
+        "jive"
+      ],
+      "extra-answers": [
+        "disco",
+        "latin",
+        "soul",
+        "swing",
+        "moonwalk",
+        "twist",
+        "floss",
+        "griddy",
+        "time warp"
+      ]
+    },
+    "07-28": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_vampires",
+      "text": "Name a vampire.",
+      "type": "both",
+      "column": 1,
+      "top-answer-default": [
+        "edward",
+        "dracula",
+        "nosferatu"
+      ],
+      "extra-answers": [
+        "dracula"
+      ]
+    },
+    "07-29": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_minerals",
+      "text": "Name a mineral.",
+      "type": "bullets",
+      "top-answer-default": [
+        "diamond",
+        "nickel",
+        "bismuth"
+      ]
+    },
+    "07-30": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_sports",
+      "text": "Name a sport.",
+      "type": "bullets",
+      "top-answer-default": [
+        "bowling",
+        "handball",
+        "lacrosse"
+      ],
+      "extra-answers": [
+        "handball",
+        "lacrosse",
+        "climbing",
+        "gymnastics",
+        "racing",
+        "esports"
+      ]
+    },
+    "07-31": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_chemical_elements",
+      "text": "Name a chemical element (full name).",
+      "type": "table",
+      "column": 3,
+      "top-answer-default": [
+        "xenon",
+        "nickel",
+        "bismuth"
+      ]
+    },
+    "08-01": {
+      "wikipedia-list": "https://en.wikipedia.org/wiki/List_of_genres",
+      "text": "Name a genre.",
+      "type": "bullets",
+      "top-answer-default": [
+        "adventure",
+        "comedy",
+        "romance"
+      ],
+      "extra-answers": [
+        "hard scifi",
+        "soft scifi",
+        "lovecraft"
+      ]
+    }
+}

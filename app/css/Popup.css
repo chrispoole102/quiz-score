@@ -1,0 +1,73 @@
+.popup-container {
+    position: absolute;
+    background-color: darkcyan;
+    padding: 5px;
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #0a0a0a;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.popup-text {
+    font-size: 16px;
+}
+.popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #0a0a0a;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    color: #ededed;
+}
+.popup-close div {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+}
+.popup-close:hover {
+    background-color: #272727;
+}
+
+.popup-close-button {
+    position: relative;
+    padding: 5px;
+    background-color: #0a0a0a;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #ededed;
+}
+.popup-close-button:hover {
+    background-color: #272727;
+}
+.popup-close-button div {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    text-align: center;
+    width: 100%;
+}
+
+.popup-list-item {
+    display: flex;
+    flex-direction: row;
+}
+.popup-list-item .scrabble-word-container {
+    width: 85%;
+}
+.popup-list-item .score-text {
+    font-size: 20px;
+    margin-left: 5px;
+}
