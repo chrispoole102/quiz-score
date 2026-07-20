@@ -1,6 +1,6 @@
 // lib/answer-cache.js
-const { getDailyQuestion, getTodayKey } = require('./daily-question');
-const { getWikipediaListItems } = require('./wikipedia-parser.js');
+import { getDailyQuestion, getTodayKey } from './daily-question';
+import { getWikipediaListItems } from './wikipedia-parser.js';
 
 async function parseWikipediaList(article, type, column, extraAnswers) {
     return getWikipediaListItems(article, type, column, extraAnswers);
@@ -31,12 +31,10 @@ function getCurrentDay() {
     return cachedDay;
 }
 
-function getTodaysQuestion() {
+export function getTodaysQuestion() {
     return getCurrentDay().question;
 }
 
-async function getTodaysAnswers() {
+export async function getTodaysAnswers() {
     return getCurrentDay().answersPromise;
 }
-
-module.exports = { getTodaysQuestion, getTodaysAnswers };

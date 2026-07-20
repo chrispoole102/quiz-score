@@ -1,9 +1,9 @@
 // lib/daily-route.js
-const questionsData = require('../json/questions.json');
+import questionsData from '../json/questions.json';
 
 // Returns YYYY-MM-DD in UTC, so the "day" boundary is consistent
 // regardless of which timezone a given server instance is running in.
-function getTodayKey() {
+export function getTodayKey() {
     return new Date().toISOString().slice(5, 10);
 }
 
@@ -27,7 +27,7 @@ function mulberry32(seed) {
     };
 }
 
-function getDailyQuestion(dateKey = getTodayKey()) {
+export function getDailyQuestion(dateKey = getTodayKey()) {
     const keys = Object.keys(questionsData);
     console.log(dateKey);
     let index = keys.indexOf(dateKey);
@@ -48,5 +48,3 @@ function getDailyQuestion(dateKey = getTodayKey()) {
     } while (questionData['x3'] == questionData['x2'])
     return questionsData[keys[index]];
 }
-
-module.exports = { getTodayKey, getDailyQuestion };

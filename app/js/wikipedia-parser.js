@@ -3,7 +3,7 @@
 // Server-side (Node) version — uses jsdom instead of the browser's
 // DOMParser, so this can run inside a Next.js API route / server cache.
 
-const { JSDOM } = require('jsdom');
+import { JSDOM } from 'jsdom';
 
 /**
  * Turn a Wikipedia URL like
@@ -143,7 +143,7 @@ function extractListItems(html, type, column) {
  * @param {string[]} extraAnswers
  * @returns {Promise<string[]>}
  */
-async function getWikipediaListItems(pageUrl, type, column, extraAnswers) {
+export async function getWikipediaListItems(pageUrl, type, column, extraAnswers) {
     const { lang, title } = parseWikipediaUrl(pageUrl);
 
     const apiUrl =
@@ -175,5 +175,3 @@ async function getWikipediaListItems(pageUrl, type, column, extraAnswers) {
         items.push(...extraAnswers)
     return items;
 }
-
-module.exports = { parseWikipediaUrl, extractListItems, getWikipediaListItems };
