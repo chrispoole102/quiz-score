@@ -1,9 +1,11 @@
 // lib/wikipedia-parse.js
 //
-// Server-side (Node) version — uses jsdom instead of the browser's
-// DOMParser, so this can run inside a Next.js API route / server cache.
+// Server-side (Node) version — uses linkedom instead of jsdom, so this
+// can run inside a Next.js API route / server cache without pulling in
+// jsdom's ESM-only transitive deps (html-encoding-sniffer -> @exodus/bytes),
+// which break when bundled for serverless (ERR_REQUIRE_ESM).
 
-import { JSDOM } from 'jsdom';
+import { parseHTML } from 'linkedom';
 
 /**
  * Turn a Wikipedia URL like
@@ -29,8 +31,7 @@ function parseWikipediaUrl(url) {
  * @returns {string[]} array of item names, deduped, in document order
  */
 function extractListItems(html, type, column) {
-    const dom = new JSDOM(html);
-    const doc = dom.window.document;
+    const { document: doc } = parseHTML(html);
     const root = doc.querySelector('.mw-parser-output') || doc.body;
 
     // Strip elements that are never actual list content
