@@ -11,3 +11,8 @@
     opacity: 0;
     z-index: 1;
 }
+
+.scrabble-input-container .scrabble-word-container {
+
+    height: 10cqw;
+}

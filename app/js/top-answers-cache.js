@@ -16,8 +16,9 @@ export default function getTopAnswers(userAnswer, score) {
     let gotTopAnswer;
     let newTopAnswer;
     if (topAnswersToday.includes(userAnswer)) {
-        gotTopAnswer = true;//Don't change the array, we already have the answer recorded
+        gotTopAnswer = topAnswersToday.indexOf(userAnswer)+1;
         newTopAnswer = false;
+        //Don't change the array, we already have the answer recorded
     }
     else {
         let spotToAdd = -1;

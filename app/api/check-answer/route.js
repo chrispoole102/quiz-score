@@ -45,7 +45,7 @@ export async function POST(req) {
         const isCorrect = checkAnswer(normalizedAnswer, validAnswers);
         let score = 0;
         let topAnswers = [];
-        let gotTopAnswer = false;
+        let gotTopAnswer = 0;
         let newTopAnswer = false;
         if (isCorrect)
         {

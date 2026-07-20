@@ -5,7 +5,7 @@ export default function Popup({text, array, onClose, x2Location, x3Location}) {
 
     return (
         <div className={"popup-container"}>
-            {array.length > 0 && <h2 className={"popup-header"}>Great Answer!</h2>}
+            {array.length > 0 && <h2 className={"popup-text"}>Great Answer!</h2>}
             <div className={"popup-close"} onClick={onClose}><div>X</div></div>
             <div className={"popup-text"}>{text}</div>
             {array.length > 0 && <div className={"popup-list-header"}>Top Answers</div>}

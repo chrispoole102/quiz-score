@@ -6,15 +6,19 @@
 .submit-button {
     background-color: #005e7c;
     color: black;
-    width: 200px;
-    padding: 10px;
+    width: 400px;
+    padding: 20px;
     text-align: center;
     user-select: none;
-    margin-top: 30px;
-    border-radius: 10px;
+    margin-top: 60px;
+    border-radius: 20px;
+    font-size: 32px;
 }
 .submit-button:hover {
     background-color: #0094c6;
+}
+.quiz-question-text {
+    font-size: 32px;
 }
 
 .incorrect-popup {
@@ -22,10 +26,10 @@
     left: 50%;
     top: 30%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
+    font-size: 60px;
     text-align: center;
     animation: fade 1s forwards;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
 @keyframes fade {
     0% {

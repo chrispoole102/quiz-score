@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: row;
     container-type: size;
-    height: 10cqw;
 }
 .scrabble-word-container .letter {
     width: 100%;

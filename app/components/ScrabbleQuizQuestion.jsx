@@ -96,6 +96,7 @@ export default function ScrabbleQuizQuestion() {
                 setResult(data);
                 setScore(data.score);
                 topAnswersSeen = data.topAnswers;
+                console.log(data.gotTopAnswer)
                 if (data.gotTopAnswer == 0)//didn't get a top answer
                 {
                     setPopupText(answer.toUpperCase() + " scored " + data.score + " points!");
@@ -131,14 +132,14 @@ export default function ScrabbleQuizQuestion() {
 
     return (
         <div className={"quiz-question-container"}>
-            <div>
+            <div className={"quiz-question-text"}>
                 {questionText}
             </div>
             <ScrabbleInput
                 onChange={inputChanged}
                 x2Location={x2Location}
                 x3Location={x3Location}
-                style={{width: "400px"}}
+                style={{width: "700px"}}
             ></ScrabbleInput>
             <div onClick={handleSubmit} className={"submit-button"}>
                 Submit
