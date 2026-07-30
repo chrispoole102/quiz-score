@@ -12,6 +12,7 @@
 }
 .popup-text {
     font-size: 32px;
+
 }
 .popup-close {
     position: absolute;
@@ -72,6 +73,23 @@
     width: 85%;
 }
 .popup-list-item .score-text {
-    font-size: 40px;
+    font-size: 32px;
     margin-left: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+    .popup-container {
+        padding: 5px;
+        width: 95%
+    }
+    .popup-close {
+        padding: 0;
+        width: 10vw;
+        height: 10vw;
+        font-size: 8vw;
+    }
+    .popup-list-item .score-text {
+        font-size: 6vw;
+        margin-left: 0;
+    }
 }

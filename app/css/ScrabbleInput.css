@@ -1,7 +1,12 @@
 .scrabble-input-container {
     position: relative;
+    width: 700px;
 }
-
+@media only screen and (max-width: 700px) {
+    .scrabble-input-container {
+        width: 95%;
+    }
+}
 .hidden-input {
     position: absolute;
     left: 0;
@@ -16,3 +21,4 @@
 
     height: 10cqw;
 }
+

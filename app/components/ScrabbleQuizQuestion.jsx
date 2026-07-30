@@ -139,7 +139,6 @@ export default function ScrabbleQuizQuestion() {
                 onChange={inputChanged}
                 x2Location={x2Location}
                 x3Location={x3Location}
-                style={{width: "700px"}}
             ></ScrabbleInput>
             <div onClick={handleSubmit} className={"submit-button"}>
                 Submit
