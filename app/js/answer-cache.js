@@ -1,40 +1,39 @@
 // lib/answer-cache.js
 import { getDailyQuestion, getTodayKey } from './daily-question';
 import { getWikipediaListItems } from './wikipedia-parser.js';
+import { getStore } from '@netlify/blobs';
 
-async function parseWikipediaList(article, type, column, extraAnswers) {
-    return getWikipediaListItems(article, type, column, extraAnswers);
-}
 
-let cachedDay = null;
+const inflight = new Map(); // dedupe concurrent requests within one instance
 
-function loadDay(dateKey) {
-    const question = getDailyQuestion(dateKey);
-    const answersPromise = parseWikipediaList(
+async function loadAnswers(dateKey, question) {
+    const store = getStore({ name: 'daily-answers' });
+
+    const cached = await store.get(dateKey, { type: 'json' });
+    if (cached) return cached;
+
+    const answers = await getWikipediaListItems(
         question['wikipedia-list'],
         question.type,
         question.column,
         question['extra-answers']
-    ).catch((err) => {
-        if (cachedDay?.dateKey === dateKey) cachedDay = null;
-        throw err;
-    });
-
-    return { dateKey, question, answersPromise };
-}
-
-function getCurrentDay() {
-    const todayKey = getTodayKey();
-    if (!cachedDay || cachedDay.dateKey !== todayKey) {
-        cachedDay = loadDay(todayKey);
-    }
-    return cachedDay;
+    );
+    await store.setJSON(dateKey, answers);
+    return answers;
 }
 
 export function getTodaysQuestion() {
-    return getCurrentDay().question;
+    return getDailyQuestion();
 }
 
 export async function getTodaysAnswers() {
-    return getCurrentDay().answersPromise;
+    const dateKey = getTodayKey();
+    if (!inflight.has(dateKey)) {
+        const p = loadAnswers(dateKey, getDailyQuestion(dateKey)).catch((err) => {
+            inflight.delete(dateKey);
+            throw err;
+        });
+        inflight.set(dateKey, p);
+    }
+    return inflight.get(dateKey);
 }

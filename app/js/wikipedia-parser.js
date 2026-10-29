@@ -159,7 +159,9 @@ export async function getWikipediaListItems(pageUrl, type, column, extraAnswers)
             origin: '*',
         });
 
-    const res = await fetch(apiUrl);
+    const res = await fetch(apiUrl, {
+        headers: { 'User-Agent': 'quiz-score/1.0 (chrispoole102@gmail.com)' }
+    });
 
     if (!res.ok) {
         throw new Error(`Wikipedia API request failed: ${res.status} ${res.statusText}`);
