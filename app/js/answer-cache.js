@@ -7,6 +7,7 @@ import { getStore } from '@netlify/blobs';
 const inflight = new Map(); // dedupe concurrent requests within one instance
 
 async function loadAnswers(dateKey, question) {
+    console.log("load answers started")
     const store = getStore({ name: 'daily-answers' });
 
     const cached = await store.get(dateKey, { type: 'json' });
