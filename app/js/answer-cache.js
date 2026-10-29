@@ -10,7 +10,7 @@ async function loadAnswers(dateKey, question) {
     console.log("load answers started")
     const store = getStore({ name: 'daily-answers' });
 
-    const entryMetadata = await store.getWithMetadata(dateKey, {type: 'text'})
+    const entryMetadata = await store.getMetadata(dateKey)
     if (entryMetadata) {
         return await store.get(dateKey, { type: 'json' });
     }
