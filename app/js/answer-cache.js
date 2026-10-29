@@ -10,8 +10,10 @@ async function loadAnswers(dateKey, question) {
     console.log("load answers started")
     const store = getStore({ name: 'daily-answers' });
 
-    const cached = await store.get(dateKey, { type: 'json' });
-    if (cached) return cached;
+    const entryMetadata = await store.getWithMetadata(dateKey, {type: 'text'})
+    if (entryMetadata) {
+        return await store.get(dateKey, { type: 'json' });
+    }
 
     console.log("checked blobs and didn't find it")
 
