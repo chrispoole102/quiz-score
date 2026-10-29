@@ -39,9 +39,7 @@ export async function POST(req) {
 
     try {
         let question = getTodaysQuestion();
-        console.log("getting valid answers");
         const validAnswers = await getTodaysAnswers();
-        console.log("found valid answers");
         const normalizedAnswer = String(answer).trim().toLowerCase();
         const isCorrect = checkAnswer(normalizedAnswer, validAnswers);
         let score = 0;

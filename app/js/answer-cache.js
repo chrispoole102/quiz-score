@@ -34,17 +34,13 @@ export function getTodaysQuestion() {
 }
 
 export async function getTodaysAnswers() {
-    console.log("get todays answers")
     const dateKey = getTodayKey();
     if (!inflight.has(dateKey)) {
-        console.log("inflight doesn't have key; fetching data")
         const p = loadAnswers(dateKey, getDailyQuestion(dateKey)).catch((err) => {
             inflight.delete(dateKey);
             throw err;
         });
-        console.log("set inflight data")
         inflight.set(dateKey, p);
     }
-    console.log("returning data")
     return inflight.get(dateKey);
 }
