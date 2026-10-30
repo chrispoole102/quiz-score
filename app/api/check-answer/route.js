@@ -17,7 +17,7 @@ function checkAnswer(answer, acceptableAnswers) {
             return true;
         if (words[0].toLowerCase() == "the")
         {
-            words.unshift();//remove "the" and try some more
+            words.shift();//remove "the" and try some more
             //words[0] used to be words[1] which we already checked
             if (words.length > 1 && answer == words[1].toLowerCase())
                 return true;
