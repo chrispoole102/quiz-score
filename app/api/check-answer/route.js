@@ -49,7 +49,7 @@ export async function POST(req) {
         if (isCorrect)
         {
             score = scoreAnswer(normalizedAnswer, question['x2'], question['x3']);
-            [ gotTopAnswer, newTopAnswer, topAnswers ] = getTopAnswers(normalizedAnswer, score);
+            [ gotTopAnswer, newTopAnswer, topAnswers ] = await getTopAnswers(normalizedAnswer, score);
         }
 
 
