@@ -55,9 +55,9 @@ export async function POST(req) {
 
     try {
         let question = getTodaysQuestion();
-        const { answers, lengthStarts } = await getTodaysAnswers();
+        const answers = await getTodaysAnswers();
         const normalizedAnswer = String(answer).trim().toLowerCase();
-        const isCorrect = checkAnswer(normalizedAnswer, answers, lengthStarts);
+        const isCorrect = checkAnswer(normalizedAnswer, answers['answers'], answers['lengthStarts']);
         let score = 0;
         let topAnswers = [];
         let gotTopAnswer = 0;
