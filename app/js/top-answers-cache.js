@@ -58,7 +58,7 @@ export default async function getTopAnswers(userAnswer, score) {
     }
 
     let netlifyBlobText = topAnswersToday.join("&@&");
-    
+
     await store.set(dateKey, netlifyBlobText);
 
     return [ gotTopAnswer, newTopAnswer, topAnswersToday ];

@@ -5,7 +5,19 @@ import letterscores from "../../json/letterscores.json"
 import getTopAnswers from "../../js/top-answers-cache";
 import scoreAnswer from "../../js/score-answer";
 
-function checkAnswer(answer, acceptableAnswers) {
+function checkAnswer(answer, acceptableAnswers, lengthStarts) {
+    let start = lengthStarts[answer.length-1];
+    let end;
+    if (answer.length >= lengthStarts.length)
+        end = lengthStarts[answer.length];
+    else
+        end = lengthStarts.length;
+    for (let i = start; i < end; i++) {
+        console.log(acceptableAnswers[i]);
+        if (answer == acceptableAnswers)
+            return true;
+    }
+    /*
     for (let a = 0; a < acceptableAnswers.length; a++) {
         let words = acceptableAnswers[a].split(" ");
 
@@ -27,6 +39,8 @@ function checkAnswer(answer, acceptableAnswers) {
         }
         //Anything 3 words or more doesn't fit in the 10 letter restriction anyway so just ignore it.
     }
+
+     */
     return false;
 }
 
@@ -39,9 +53,9 @@ export async function POST(req) {
 
     try {
         let question = getTodaysQuestion();
-        const validAnswers = await getTodaysAnswers();
+        const { answers, lengthStarts } = await getTodaysAnswers();
         const normalizedAnswer = String(answer).trim().toLowerCase();
-        const isCorrect = checkAnswer(normalizedAnswer, validAnswers);
+        const isCorrect = checkAnswer(normalizedAnswer, answers, lengthStarts);
         let score = 0;
         let topAnswers = [];
         let gotTopAnswer = 0;
