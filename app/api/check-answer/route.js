@@ -16,7 +16,7 @@ function checkAnswer(answer, acceptableAnswers, lengthStarts) {
         end = lengthStarts[answer.length];
     for (let i = start; i < end; i++) {
         console.log(acceptableAnswers[i]);
-        if (answer == acceptableAnswers)
+        if (answer == acceptableAnswers[i])
             return true;
     }
     /*
