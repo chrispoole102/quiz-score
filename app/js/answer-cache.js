@@ -45,14 +45,16 @@ async function loadAnswers(dateKey, question) {
     let answers = [];
     //sort answers
     for (let i = 0; i < wikiResults.length; i++) {
-        let entry = wikiResults[i].toLowerCase();
-        let words = entry.split(" ");
-        if (words[0] == "the")
-            words.shift();
-        answers.push(words[0]);
-        if (words.length > 1) {
-            answers.push(words[1]);
-            answers.push(words[0] + " " + words[1]);
+        if (wikiResults[i]) {
+            let entry = wikiResults[i].toLowerCase();
+            let words = entry.split(" ");
+            if (words[0] == "the")
+                words.shift();
+            answers.push(words[0]);
+            if (words.length > 1) {
+                answers.push(words[1]);
+                answers.push(words[0] + " " + words[1]);
+            }
         }
     }
     let lengthStarts = [];

@@ -6,12 +6,14 @@ import getTopAnswers from "../../js/top-answers-cache";
 import scoreAnswer from "../../js/score-answer";
 
 function checkAnswer(answer, acceptableAnswers, lengthStarts) {
+    console.log("checking answer: "+answer);
+    console.log(lengthStarts);
     let start = lengthStarts[answer.length-1];
     let end;
-    if (answer.length >= lengthStarts.length)
-        end = lengthStarts[answer.length];
+    if (answer.length > lengthStarts.length)//10 and higher go to the end of the array
+        end = acceptableAnswers.length;
     else
-        end = lengthStarts.length;
+        end = lengthStarts[answer.length];
     for (let i = start; i < end; i++) {
         console.log(acceptableAnswers[i]);
         if (answer == acceptableAnswers)
